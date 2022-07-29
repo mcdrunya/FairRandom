@@ -14,7 +14,7 @@ def index(request):
         max_range = request.POST.get('max')
         random_number = random.randint(int(min_range), int(max_range))
         _model = ApplicationRandomModel.objects.create(date_close=datetime.strptime(_datetime, '%Y-%m-%dT%H:%M'), 
-        date_open=datetime.now(pytz.utc), 
+        date_open=datetime.datetime.utcnow(), 
         result=str(random_number),
         generated_amount=1, unique_url=uuid.uuid4().hex,
         _range= f"From {min_range} To {max_range}")
