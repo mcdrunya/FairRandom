@@ -1,1 +1,1 @@
-web: gunicorn WebSite.wsgi --log-file -
+web: gunicorn FairRandom.wsgi --log-file -
