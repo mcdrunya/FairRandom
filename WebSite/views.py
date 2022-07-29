@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import ApplicationRandomModel
 from datetime import datetime
 import pytz
+from django.utils import timezone
 import random
 import uuid
 
@@ -9,6 +10,8 @@ def index(request):
     template_name = 'WebSite/index.html'
     
     if request.POST:
+        now = timezone.now()
+        print(now)
         _datetime  = request.POST.get('appt')
         min_range = request.POST.get('min')
         max_range = request.POST.get('max')
