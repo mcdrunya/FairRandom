@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'FairRandom.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd52bns5l3cv58c',
+        'HOST': 'ec2-44-206-197-71.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'epwkekkgeocdkg',
+        'PASSWORD': '5107dfd49edff132951acdce5b16e32a1b171684ebe1d7ee1a81eedca1bcc620'
     }
 }
 
