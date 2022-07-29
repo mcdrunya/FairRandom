@@ -1,0 +1,42 @@
+{% extends 'WebSite/base.html' %}
+{% load static %}
+
+{%block title%}
+Fair Random
+{% endblock %}
+
+{%block content%}
+<head>
+  <link rel="stylesheet" href="{% static '/WebSite/css/main_page.css' %}">
+</head>
+
+
+<div class="random_page">
+  <h4>Choose your own range</h4>
+  
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="choose_range">
+      <input type="text" id="min" name="min" size="5" placeholder="From..." autocomplete="off" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" required="required"/>
+      <input type="text" id="max" name="max" size="5" placeholder="To..." autocomplete="off" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" required="required"/>
+    </div>
+    
+
+    <div class="choose_time">
+      <h4>Choose a time</h4>
+      <input type="datetime-local" id="appt" name="appt" required="required">
+      <small>Press Submit to get an unique link for your random number</small>
+      <button class="small_button">Submit</button>
+    </div>
+  </form>
+  
+  <div class="press_to_random">
+    <h2>Press to random your number now!</h2>
+    <button class="random_button" onclick="Random();">Random</button>
+    <input type="text" id="result" name="result" size="10" readonly />
+    <button class="small_button" onclick="Clear();">Clear input</button>
+  </div>
+</div>
+
+<script src="{% static '/WebSite/js/main_page.js' %}"></script>
+{% endblock %}
