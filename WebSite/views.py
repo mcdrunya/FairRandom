@@ -23,7 +23,7 @@ def index(request):
     return render(request, template_name)
 
 
-def choose_time(request, url:str):
+def choose_time(request, url:strd):
 
     _model: ApplicationRandomModel = ApplicationRandomModel.objects.filter(unique_url=url).first()
     if _model:
