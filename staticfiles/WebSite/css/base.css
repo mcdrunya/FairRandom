@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(238, 238, 238);
+    color: #111111;
+}
+
+.nav-pills .nav-link.active{
+    background-color: #DC143C;
+}
+
+.nav-pills  .nav-link{
+    color: #111111;
+}
+
+.fs-4{
+    margin-left:5px;
+}
+
+.nav-item{
+    padding: 0px 0px 0px 7px;
+}

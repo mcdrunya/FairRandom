@@ -1,0 +1,15 @@
+.timer{
+    margin-top: 100px;
+    text-align: center;
+    size: 50px;
+}
+
+.timer p{
+    font-size: 80px;
+}
+
+.random_info{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
