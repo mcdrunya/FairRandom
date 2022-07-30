@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import ApplicationRandomModel
 from datetime import datetime
-import pytz
 import random
 import uuid
-
 
 def index(request):
     template_name = 'WebSite/index.html'
@@ -13,9 +11,10 @@ def index(request):
         _datetime  = request.POST.get('appt')
         min_range = request.POST.get('min')
         max_range = request.POST.get('max')
+        client_time = request.POST.get('date-time')
         random_number = random.randint(int(min_range), int(max_range))
         _model = ApplicationRandomModel.objects.create(date_close=datetime.strptime(_datetime, '%Y-%m-%dT%H:%M'), 
-        date_open=datetime.now(), 
+        date_open=datetime.strptime(client_time, '%Y-%m-%dT%H:%M:%S.%f%z'), 
         result=str(random_number),
         generated_amount=1, unique_url=uuid.uuid4().hex,
         _range= f"From {min_range} To {max_range}")
