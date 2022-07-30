@@ -8,6 +8,7 @@ import uuid
 
 def index(request):
     template_name = 'WebSite/index.html'
+    print(datetime.now().astimezone().strftime("%Y-%m-%dT%H:%M:%S %z"))
     
     if request.POST:
         _datetime  = request.POST.get('appt')
