@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import ApplicationRandomModel
 from datetime import datetime, timedelta
+from django.utils import timezone
+from tzlocal import get_localzone
 import pytz
 import random
 import uuid
