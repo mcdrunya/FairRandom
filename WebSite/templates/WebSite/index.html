@@ -25,7 +25,7 @@ Fair Random
       <h4>Choose a time</h4>
       <input type="datetime-local" id="appt" name="appt" required="required">
       <small>Press Submit to get an unique link for your random number</small>
-      <button class="small_button">Submit</button>
+      <button class="small_button" onclick="ClientTime();">Submit</button>
     </div>
     <input type="text" id='date-time' name='date-time' hidden="hidden"/>
   </form>
@@ -40,8 +40,6 @@ Fair Random
 
 <script src="{% static '/WebSite/js/main_page.js' %}"></script>
 
-<script>
-  var dt = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString();
-  document.getElementById('date-time').value=dt;
-</script>
+
+
 {% endblock %}
