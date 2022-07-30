@@ -10,6 +10,7 @@ def index(request):
     template_name = 'WebSite/index.html'
     print("Astimezone ->", datetime.now().astimezone().strftime("%Y-%m-%dT%H:%M:%S %z"))
     print("datetime.now ->", datetime.now())
+    print("UTC time ->", datetime.utcnow())
     
     if request.POST:
         _datetime  = request.POST.get('appt')
