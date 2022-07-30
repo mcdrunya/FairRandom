@@ -10,6 +10,9 @@ import uuid
 
 def index(request):
     template_name = 'WebSite/index.html'
+    local_tz = get_localzone()
+    timezone.activate(local_tz)
+    print(timezone.localtime(timezone.now()))
     
     if request.POST:
         _datetime  = request.POST.get('appt')
