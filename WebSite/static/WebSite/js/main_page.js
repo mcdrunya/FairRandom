@@ -17,3 +17,8 @@ function Random() {
     max_input.value = max_input.defaultValue;
     result.value = result.defaultValue;
   }
+
+  function ClientTime() {
+    var dt = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString();
+    document.getElementById('date-time').value=dt;
+  }
