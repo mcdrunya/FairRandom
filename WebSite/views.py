@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import ApplicationRandomModel
-from datetime import datetime, timedelta
-from django.utils import timezone
-from tzlocal import get_localzone
+from datetime import datetime
 import pytz
 import random
 import uuid
@@ -10,9 +8,6 @@ import uuid
 
 def index(request):
     template_name = 'WebSite/index.html'
-    local_tz = get_localzone()
-    timezone.activate(local_tz)
-    print(timezone.localtime(timezone.now()))
     
     if request.POST:
         _datetime  = request.POST.get('appt')
@@ -20,7 +15,7 @@ def index(request):
         max_range = request.POST.get('max')
         random_number = random.randint(int(min_range), int(max_range))
         _model = ApplicationRandomModel.objects.create(date_close=datetime.strptime(_datetime, '%Y-%m-%dT%H:%M'), 
-        date_open=datetime.now() + timedelta(hours=3), 
+        date_open=datetime.now(), 
         result=str(random_number),
         generated_amount=1, unique_url=uuid.uuid4().hex,
         _range= f"From {min_range} To {max_range}")
