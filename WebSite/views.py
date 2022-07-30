@@ -4,14 +4,10 @@ from datetime import datetime
 import pytz
 import random
 import uuid
-from django.utils import timezone
-import datetime
+
 
 def index(request):
     template_name = 'WebSite/index.html'
-    print(timezone.now())  # The UTC time
-    print(timezone.localtime())  # timezone specified time, 
-    print(datetime.datetime.now())  # default local time
     
     if request.POST:
         _datetime  = request.POST.get('appt')
